@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors Game</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="icon" href="images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap">
+</head>
+<body>
+    <div class="game">
+        <div class="overlay"></div>
+        <div class="image-rules">
+            <div>
+                <h1>Rules</h1>
+                <button>
+                    <img src="./images/icon-close.svg" alt="">
+                </button>
+            </div>
+            <img class="board" src="./images/image-rules-bonus.svg" alt="">
+        </div>
+        <div class="container">
+            <div class="game-header">
+                <div class="logo">
+                    <img src="./images/logo-bonus.svg" alt="">
+                </div>
+                <div class="score-div">
+                    <span class="score">score</span>
+                    <span class="count">0</span>
+                </div>
+            </div>
+            <div class="game-body">
+                <div class="start-game">
+                    <img class="pentagon" src="./images/bg-pentagon.svg" alt="">
+                    <div class="part1">
+                        <div class="tool scissors" data-color="#eca922" data-shadow="#d06b13">
+                            <button>
+                                <img class="icon-scissors" src="./images/icon-scissors.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="part2">
+                        <div class="tool spock" data-color="#40b9ce" data-shadow="#2e89a8">
+                            <button>
+                                <img class="icon-spock" src="./images/icon-spock.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="tool paper" data-color="#4865f4" data-shadow="#2946bb">
+                            <button>
+                                <img class="icon-paper" src="./images/icon-paper.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="part3">
+                        <div class="tool lizard" data-color="#834fe3" data-shadow="#5c36a7">
+                            <button>
+                                <img class="icon-lizard" src="./images/icon-lizard.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="tool rock" data-color="#dc2e4e" data-shadow="#9b1432">
+                            <button>
+                                <img class="icon-rock" src="./images/icon-rock.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-result">
+                    <div class="user-pick">
+                        <div>
+                            <h3>You Picked</h3>
+                        </div>
+                        <div class="user">
+                            <div class="user-tool">
+                                <button>
+                                    <img src="" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result">
+                        <h1 class="result-text">you win</h1>
+                        <button>Play Again</button>
+                    </div>
+                    <div class="house-pick">
+                        <div>
+                            <h3>House Picked</h3>
+                        </div>
+                        <div class="house">
+                            <div class="house-tool">
+                                <button>
+                                    <img src="" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="house-pick-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="rules">rules</button>
+
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="https://github.com/ahmedelsangek" target="_blank">Ahmed Magdy</a>.
+    </div>
+
+    <audio class="success" src="./audio/Success2.mp3" preload="auto"></audio>
+    <audio class="fail" src="./audio/Fail.mp3" preload="auto"></audio>
+    <audio class="tie" src="./audio/tie.mp3" preload="auto"></audio>
+    <audio class="click" src="./audio/click.wav"></audio>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>

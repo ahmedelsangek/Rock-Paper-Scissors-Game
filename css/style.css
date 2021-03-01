@@ -1,0 +1,483 @@
+:root {
+  --Scissors-Gradient: hsl(40, 84%, 53%);
+  --Scissors-Gradient-Shadow: #d06b13;
+  --Paper-Gradient: hsl(230, 89%, 62%);
+  --Paper-Gradient-Shadow: #2946bb;
+  --Rock-Gradient: hsl(349, 71%, 52%);
+  --Rock-Gradient-Shadow: #9b1432;
+  --Lizard-Gradient: hsl(261, 73%, 60%);
+  --Lizard-Gradient-Shadow: #5c36a7;
+  --Cyan: hsl(189, 59%, 53%);
+  --Cyan-Shadow: #2e89a8;
+
+  --Dark-Text: hsl(229, 25%, 31%);
+  --Score-Text: hsl(229, 64%, 46%);
+  --game-header-Outline: hsl(217, 16%, 45%);
+
+  --background-color: radial-gradient(circle at top, #1f3756, #141539);
+}
+* {
+  box-sizing: border-box;
+}
+.container {
+  margin: auto;
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: 320px;
+  }
+}
+@media (min-width: 576px) {
+  .container {
+    width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1000px;
+  }
+}
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background-image: var(--background-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+}
+.game {
+  position: relative;
+  padding-top: 40px;
+}
+.game .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+/* Start Game Body */
+.game .image-rules {
+  position: absolute;
+  top: 71%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  background-color: white;
+  width: 400px;
+  height: 460px;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 85px;
+  display: none;
+}
+.game .image-rules div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.game .image-rules h1 {
+  color: var(--Dark-Text);
+  margin: 0 0 0 20px;
+}
+.game .image-rules button {
+  background: none;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  margin: 10px 35px 0 0;
+}
+.game .game-header {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid var(--game-header-Outline);
+  border-radius: 20px;
+  margin-bottom: 100px;
+}
+.game .game-header .logo {
+  padding: 20px;
+}
+.game .game-header .score-div {
+  width: 150px;
+  height: 110px;
+  margin: 23px;
+  background-color: #eee;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.game .game-header .score-div .score {
+  font-size: 23px;
+  color: var(--Score-Text);
+}
+.game .game-header .score-div .count {
+  font-size: 50px;
+  color: var(--Dark-Text);
+}
+@media (max-width: 767px) {
+  .game .game-header .logo img {
+    width: 95px;
+    height: 95px;
+  }
+  .game .game-header .score-div .score {
+    font-size: 15px;
+  }
+  .game .game-header .score-div .count {
+    font-size: 38px;
+  }
+  .game .game-header .score-div {
+    width: 100px;
+    height: 90px;
+  }
+}
+.game .game-body .start-game {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.game .game-body .start-game .pentagon {
+  position: absolute;
+}
+.game .game-body .start-game div:not(.image-rules div) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.game .game-body .start-game div .tool {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  transition: all 0.3s linear;
+}
+.game .game-body .start-game div button {
+  border-radius: 58%;
+  border: none;
+  width: 85px;
+  height: 85px;
+  box-shadow: 0px -5px #bdbdd7;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+@media (max-width: 767px) {
+  .game .game-body .start-game div .tool {
+    width: 90px;
+    height: 90px;
+  }
+  .game .game-body .start-game div button {
+    width: 55px;
+    height: 55px;
+    box-shadow: 0px -3px #bdbdd7;
+  }
+  .game .game-body .start-game div button img {
+    width: 35px;
+    height: 35px;
+  }
+}
+.game .game-body .start-game div button:hover {
+  background: none;
+  box-shadow: none;
+}
+.game .game-body .start-game .part1 .scissors {
+  transform: translateY(-65px);
+  background-color: var(--Scissors-Gradient);
+  box-shadow: 0px 5px var(--Scissors-Gradient-Shadow);
+}
+.game .game-body .start-game .part2 .spock {
+  transform: translate(-110px, -65px);
+  background-color: var(--Cyan);
+  box-shadow: 0px 5px var(--Cyan-Shadow);
+}
+.game .game-body .start-game .part2 .paper {
+  transform: translate(110px, -65px);
+  background-color: var(--Paper-Gradient);
+  box-shadow: 0px 5px var(--Paper-Gradient-Shadow);
+}
+.game .game-body .start-game .part3 .lizard {
+  transform: translate(-50px, 10px);
+  background-color: var(--Lizard-Gradient);
+  box-shadow: 0px 5px var(--Lizard-Gradient-Shadow);
+}
+.game .game-body .start-game .part3 .rock {
+  transform: translate(50px, 10px);
+  background-color: var(--Rock-Gradient);
+  box-shadow: 0px 5px var(--Rock-Gradient-Shadow);
+}
+
+@media (min-width: 768px) {
+  .game .game-body .start-game .part1 .scissors.scale {
+    transform: matrix(1.5, 0, 0, 1.5, 0, -60);
+  }
+  .game .game-body .start-game .part2 .spock.scale {
+    transform: matrix(1.5, 0, 0, 1.5, -105, -60);
+  }
+  .game .game-body .start-game .part2 .paper.scale {
+    transform: matrix(1.5, 0, 0, 1.5, 95, -60);
+  }
+  .game .game-body .start-game .part3 .lizard.scale {
+    transform: matrix(1.5, 0, 0, 1.5, -53, -5);
+  }
+  .game .game-body .start-game .part3 .rock.scale {
+    transform: matrix(1.5, 0, 0, 1.5, 53, 5);
+  }
+}
+.rules {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  padding: 12px 45px;
+  border: 2px solid var(--game-header-Outline);
+  border-radius: 10px;
+  outline: none;
+  background: none;
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s linear;
+}
+@media (max-width: 767px) {
+  .rules {
+    right: 31%;
+  }
+}
+.rules:hover {
+  background-color: #eee;
+  color: #000;
+}
+@media (max-width: 767px) {
+  .game .game-body .start-game .pentagon {
+    width: 279px;
+    height: 263px;
+  }
+  .game .game-body .start-game .part1 .scissors {
+    transform: translateY(-50px);
+  }
+  .game .game-body .start-game .part2 .paper {
+    transform: translate(75px, -40px);
+  }
+  .game .game-body .start-game .part2 .spock {
+    transform: translate(-75px, -40px);
+  }
+  .game .game-body .start-game .part3 .rock {
+    transform: translate(40px, 25px);
+  }
+  .game .game-body .start-game .part3 .lizard {
+    transform: translate(-40px, 25px);
+  }
+}
+/* End Game Body */
+/* Start Game Result */
+.game-result {
+  display: none;
+  justify-content: space-around;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.game-result .result {
+  display: none;
+  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
+    both;
+  animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+.game-result .result h1 {
+  font-size: 40px;
+  margin: 0 0 20px 0;
+  padding-top: 135px;
+}
+.game-result .result button {
+  padding: 15px 45px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  background: white;
+  color: var(--Dark-Text);
+  letter-spacing: 2px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.game-result div {
+  text-align: center;
+}
+.game-result .user-pick .user.win,
+.game-result .house-pick .house.win {
+  box-shadow: 0 0 0 30px #2b3858, 0 0 0 60px #263555, 0 0 0 90px #223351;
+  border-radius: 50%;
+}
+.game-result .user-tool,
+.game-result .house-tool {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+.game-result h3 {
+  margin: 0 0 60px 0;
+  font-size: 22px;
+  font-weight: 100;
+}
+.game-result .user-tool button,
+.game-result .house-tool button {
+  border-radius: 58%;
+  border: none;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0px -7px #bdbdd7;
+  outline: none;
+}
+.game-result .user-tool button img,
+.game-result .house-tool button img {
+  zoom: 1.5;
+}
+.game-result .house-pick {
+  position: relative;
+  z-index: -1;
+}
+.game-result .house-pick .house-tool {
+  display: none;
+}
+.game-result .house-pick-overlay {
+  position: absolute;
+  border-radius: 50%;
+  border: none;
+  width: 150px;
+  height: 150px;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: translate(167%, 111px);
+  z-index: -1;
+}
+/* End Game Result */
+.attribution {
+  font-size: 11px;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 767px) {
+  .game {
+    padding-top: 30px;
+  }
+  .game-result {
+    display: none;
+    padding: 0;
+    justify-content: space-between;
+  }
+  .game-result h3 {
+    margin: 0 0 30px 0;
+    font-size: 20px;
+  }
+  .game-result .result {
+    position: absolute !important;
+    transform: translate(65px, 255px) !important;
+    animation: none;
+  }
+  .game-result .result h1 {
+    font-size: 40px;
+    margin: 0 0 20px 0;
+    padding: 0;
+  }
+  .game-result .user-tool,
+  .game-result .house-tool {
+    width: 100px;
+    height: 100px;
+  }
+  .game-result .user-tool button,
+  .game-result .house-tool button {
+    width: 65px;
+    height: 65px;
+    box-shadow: 0px -3px #bdbdd7;
+  }
+  .game-result .user-tool button img,
+  .game-result .house-tool button img {
+    width: 30px;
+    height: 30px;
+  }
+  .game-result .house-pick,
+  .game-result .user-pick {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .game-result .user-pick .user.win,
+  .game-result .house-pick .house.win {
+    box-shadow: 0 0 0 10px #2b3858, 0 0 0 20px #263555, 0 0 0 30px #223351;
+    border-radius: 50%;
+  }
+  .game-result .house-pick-overlay {
+    width: 65px;
+    height: 65px;
+    transform: translate(333%, 70px);
+  }
+  .game .image-rules {
+    width: 300px;
+    height: 300px;
+    line-height: 75px;
+  }
+  .game .image-rules div {
+    height: 70px;
+  }
+  .game .image-rules h1 {
+    font-size: 25px;
+  }
+  .game .image-rules button {
+    margin: 10px 20px 0 0;
+  }
+  .game .image-rules .board {
+    width: 200px;
+    height: 200px;
+  }
+
+  .attribution {
+    display: none;
+  }
+}
